@@ -1,0 +1,2 @@
+module BasicHeroscopesHelper
+end

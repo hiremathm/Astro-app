@@ -1,0 +1,84 @@
+<center>
+  <h3 class="well"  style="background-color: #5499C7;">Listing of Your Basic Heroscope Documents</h3>
+</center>
+<marquee style="color: rgb(0,0,255); font-size: 16px;     font-family: Times New Roman">Type something in the input field to search, You can get basic heroscope details and numerology details.</marquee>
+<br/>
+<div>
+  <center><input class="form-control" id="myInput" type="text" placeholder="Search by Name, Time, Place" style="width: 450px;"></center>
+</div>
+<br/><br/>
+<div class="col-md-12">
+  <table class="table table-hover">
+    <thead style="background-color:#F8C471">
+      <tr>
+        <th><center>Name</center></th>
+        <th><center>Birth Date</center></th>
+        <th><center>Birth Time</center></th>
+        <th><center>Birth Place</center></th> 
+        <th><center>Get Full Details</center></th>
+        </tr>
+    </thead>
+    <tbody id="myTable">
+      <% @basic_heroscopes.each do |basic_heroscope| %>
+        <tr>
+          <td><center><%= basic_heroscope.name%></center></td>
+          <td><center><%= basic_heroscope.date%></center></td>
+          <td>
+            <center>
+              <% if basic_heroscope.time.hour > 12 %>
+                <%= basic_heroscope.time.hour - 12%> 
+              <%else%>
+                <%= basic_heroscope.time.hour%> 
+              <% end %>
+              : <%= basic_heroscope.time.min %>
+              <%if basic_heroscope.time.hour > 12 %>
+                : PM
+              <%else%>
+                : AM
+              <% end %>
+            </center>
+          </td>
+          <td><center><%= basic_heroscope.birth_place.capitalize%></center></td>
+          <td><center><%= link_to "View", basic_heroscope, class: "btn btn-success"%></center></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br/><br/><br/>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+<center>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Heroscope</button></center>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Please fill the below details</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'form' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

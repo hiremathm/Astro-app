@@ -1,0 +1,67 @@
+<div class="container"> 
+  <div class="row">
+    <div class="col-md-12 jumbotron" style="color: #F4D03F; background-color: #1E88E5;">
+      <center><b style="font-size: 40px;">Basic Heroscope Details of <%= @basic_heroscope.name.upcase%></b></center>
+    </div>
+    <div style=" padding-top:10px;height:50px;color: #1B2631; background-color: #1E88E5; font-size: 20px;" class="col-md-12 well">
+      <b class="col-md-4">Birth Place : <%= @basic_heroscope.birth_place.capitalize%> </b>
+
+      <b class="col-md-4">Birth Date : <%= @basic_heroscope.date%> </b>
+
+      <b class="col-md-4">Birth Time : <% if @basic_heroscope.time.hour > 12 %>
+         <%= @basic_heroscope.time.hour - 12%> 
+        <%else%>
+          <%= @basic_heroscope.time.hour%> 
+        <% end %>
+
+        : <%= @basic_heroscope.time.min %>
+        <%if @basic_heroscope.time.hour > 12 %>
+          : PM
+        <%else%>
+          : AM
+        <% end %>
+         </b>
+    </div>  
+    <div class="col-sm-4" style="font-size: 20px;" >
+      <div class="panel panel-primary">
+        <div class="panel-body">
+          Birth Name Alphabet : <i style="float: right"><%= @basic_heroscope.name_alphabet%></i><br/> 
+          Nakshtra : <i style="float: right"><%= @basic_heroscope.nakshtra %></i><br/>
+          Charan : <i style="float: right"><%= @basic_heroscope.charan %></i> <br/>
+          Rashi : <i style="float: right"><%= @basic_heroscope.rashi %></i> <br/>
+          Nakshtra adipapi : <i style="float: right"><%= @basic_heroscope.nakshtra_adipathi %></i> <br/>
+          Rashi adipapi : <i style="float: right"><%= @basic_heroscope.rashi_adipathi %></i> <br/>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4" style="font-size: 20px;">
+      <div class="panel panel-primary">
+        <div class="panel-body">
+         Paksha and  Tithi : <i style="float: right"><%= @basic_heroscope.tithi %></i> <br/>
+          Yog : <i style="float: right"><%= @basic_heroscope.yog %></i> <br/>
+          Karan : <i style="float: right"><%= @basic_heroscope.karan %></i> <br/>
+          Nadi : <i style="float: right"><%= @basic_heroscope.nadi %></i> <br/>
+          Yoni : <i style="float: right"><%= @basic_heroscope.yoni %></i> <br/>
+          Gana : <i style="float: right"><%= @basic_heroscope.gana %></i> <br/>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4" style="font-size: 20px;">
+      <div class="panel panel-primary">
+        <div class="panel-body">
+          Varna : <i style="float: right"><%= @basic_heroscope.varna %></i> <br/>
+          Vashya : <i style="float: right"><%= @basic_heroscope.vashya %></i> <br/>
+          Ascendant : <i style="float: right"><%= @basic_heroscope.ascendant %></i> <br/>
+          Yunja : <i style="float: right"><%= @basic_heroscope.yunja %></i> <br/>
+          Tatva : <i style="float: right"><%= @basic_heroscope.tatva %></i> <br/>
+          Paya : <i style="float: right"><%= @basic_heroscope.paya %></i> <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <center><%= link_to "HOME", basic_heroscopes_path, class: "btn btn-warning"%></center>      
+  </div>
+</div>

@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 1
+  month: 1
+  year: 1
+  min: 1
+  hour: 1
+  lat: 1.5
+  lon: 1.5
+  tzone: 1.5
+  ascendant: MyString
+  varna: MyString
+  vashya: MyString
+  yoni: MyString
+  gana: MyString
+  nadi: MyString
+  rashi_adipathi: MyString
+  rashi/sign: MyString
+  nakshtra: MyString
+  nakshtra_adipathi: MyString
+  charan: MyString
+  yog: MyString
+  karan: MyString
+  tithi: MyString
+  yunja: MyString
+  tatva: MyString
+  name_alphabet: MyString
+  paya: MyString
+
+two:
+  day: 1
+  month: 1
+  year: 1
+  min: 1
+  hour: 1
+  lat: 1.5
+  lon: 1.5
+  tzone: 1.5
+  ascendant: MyString
+  varna: MyString
+  vashya: MyString
+  yoni: MyString
+  gana: MyString
+  nadi: MyString
+  rashi_adipathi: MyString
+  rashi/sign: MyString
+  nakshtra: MyString
+  nakshtra_adipathi: MyString
+  charan: MyString
+  yog: MyString
+  karan: MyString
+  tithi: MyString
+  yunja: MyString
+  tatva: MyString
+  name_alphabet: MyString
+  paya: MyString
