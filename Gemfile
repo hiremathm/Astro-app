@@ -9,7 +9,7 @@ gem 'pry'
 gem 'geocoder'
 gem 'devise'
 group :production do 
-	gem 'pg'
+	gem 'pg', '~> 0.15.1'
 end
 # Use sqlite3 as the database for Active Record
 group :development do 
