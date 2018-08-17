@@ -20,6 +20,7 @@ module Askmonk
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.initialize_on_precompile = false
+    config.secret_key = '2a455e336eac5e39ec411b1e412b2d9b48c4958687ea71e4547d5ec8d919632e79168fd5de96da371f97eaf2c710b528283826287f16646ef5f3bb77151fd92b'
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
