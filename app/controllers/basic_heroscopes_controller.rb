@@ -27,6 +27,7 @@ class BasicHeroscopesController < ApplicationController
   def create
     @basic_heroscope = BasicHeroscope.new(basic_heroscope_params)
     @basic_heroscope.user_id = current_user.id
+    @basic_heroscope.tzone = 5.5
     respond_to do |format|
       if @basic_heroscope.save
         format.html { redirect_to @basic_heroscope, notice: 'Basic heroscope was successfully created.' }
