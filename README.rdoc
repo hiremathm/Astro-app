@@ -7,3 +7,6 @@
 
 Please feel free to use a this app for getting Heroscope details.
 
+
+FLUSH PRIVILEGES;
+UPDATE user SET plugin='mysql_native_password' WHERE User='root';

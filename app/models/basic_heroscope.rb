@@ -3,6 +3,7 @@ require 'uri'
 
 class BasicHeroscope < ActiveRecord::Base
 
+	belongs_to :user
 	@@baseURL = "http://api.vedicrishiastro.com/v1/"
 
 	before_save :determine_lat_and_long, :get_basic_heroscope_details

@@ -1,6 +1,6 @@
 class BasicHeroscopesController < ApplicationController
   before_action :set_basic_heroscope, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:new, :show, :edit, :update, :destroy]
   # GET /basic_heroscopes
   # GET /basic_heroscopes.json
   def index
@@ -26,7 +26,7 @@ class BasicHeroscopesController < ApplicationController
   # POST /basic_heroscopes.json
   def create
     @basic_heroscope = BasicHeroscope.new(basic_heroscope_params)
-
+    @basic_heroscope.user_id = current_user.id
     respond_to do |format|
       if @basic_heroscope.save
         format.html { redirect_to @basic_heroscope, notice: 'Basic heroscope was successfully created.' }
@@ -70,6 +70,6 @@ class BasicHeroscopesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def basic_heroscope_params
-      params.require(:basic_heroscope).permit(:name, :date,:time , :lat, :lon, :tzone, :ascendant, :varna, :vashya, :yoni, :gana, :nadi, :rashi_adipathi, :rashi, :nakshtra, :nakshtra_adipathi, :charan, :yog, :karan, :tithi, :yunja, :tatva, :name_alphabet, :paya, :birth_place)
+      params.require(:basic_heroscope).permit(:name, :date,:time , :lat, :lon, :tzone, :ascendant, :varna, :vashya, :yoni, :gana, :nadi, :rashi_adipathi, :rashi, :nakshtra, :nakshtra_adipathi, :charan, :yog, :karan, :tithi, :yunja, :tatva, :name_alphabet, :paya, :birth_place, :user_id)
     end
 end

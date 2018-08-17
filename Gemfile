@@ -7,6 +7,10 @@ gem 'json'
 gem 'httparty'
 gem 'pry'
 gem 'geocoder'
+gem 'devise'
+group :production do 
+	gem 'pg'
+end
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

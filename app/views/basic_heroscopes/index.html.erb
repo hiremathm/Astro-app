@@ -1,13 +1,26 @@
 <center>
   <h3 class="well"  style="background-color: #5499C7;">Listing of Your Basic Heroscope Documents</h3>
 </center>
-<marquee style="color: rgb(0,0,255); font-size: 16px;     font-family: Times New Roman">Type something in the input field to search, You can get basic heroscope details and numerology details.</marquee>
+  <%if not user_signed_in?%>
+    <marquee style="color: rgb(0,0,255); font-size: 20px;     font-family: Times New Roman">
+      Please Register to get your Heroscope details.
+    </marquee>
+  <% elsif current_user.basic_heroscopes.present? %>
+    <marquee style="color: rgb(0,0,255); font-size: 20px;">
+      Type something in the input field to search reports, You can get basic heroscope details and numerology details.
+    </marquee>
+    <div>
+      <center>
+        <input class="form-control" id="myInput" type="text" placeholder="Search by Name, Time, Place" style="width: 450px;">
+      </center>
+    </div>
+  <% else %>
+
+  <% end %>
+
+<% if user_signed_in? and current_user.basic_heroscopes.present? %>
 <br/>
-<div>
-  <center><input class="form-control" id="myInput" type="text" placeholder="Search by Name, Time, Place" style="width: 450px;"></center>
-</div>
-<br/><br/>
-<div class="col-md-12">
+  <div class="col-md-12">
   <table class="table table-hover">
     <thead style="background-color:#F8C471">
       <tr>
@@ -21,6 +34,7 @@
     <tbody id="myTable">
       <% @basic_heroscopes.each do |basic_heroscope| %>
         <tr>
+          <% if basic_heroscope.user_id == current_user.id %>
           <td><center><%= basic_heroscope.name%></center></td>
           <td><center><%= basic_heroscope.date%></center></td>
           <td>
@@ -40,14 +54,16 @@
           </td>
           <td><center><%= basic_heroscope.birth_place.capitalize%></center></td>
           <td><center><%= link_to "View", basic_heroscope, class: "btn btn-success"%></center></td>
+        <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
-</div>
-
-<br/><br/><br/>
-
+  </div>
+<% end %>
+<br/>
+<br/>
+<br/>
 <script>
 $(document).ready(function(){
   $("#myInput").on("keyup", function() {
@@ -60,7 +76,10 @@ $(document).ready(function(){
 </script>
 
 <center>
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Heroscope</button></center>
+  <% if user_signed_in? %>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Your Heroscope</button>
+  <% end %>
+</center>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -81,4 +100,52 @@ $(document).ready(function(){
     </div>
 
   </div>
+</div>
+
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<%if not user_signed_in?%>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="1.jpg" alt="Los Angeles" style="width: 539px; height: 300px;">
+    </div>
+
+    <div class="item">
+      <img src="2.jpg" alt="Chicago" style="width: 539px; height: 300px;">
+    </div>
+
+    <div class="item">
+      <img src="3.jpg" alt="New York" style="width: 539px; height: 300px;">
+    </div>
+
+    <div class="item">
+      <img src="4.jpg" alt="New York" style="width: 539px; height: 300px;">
+    </div>
+
+    <div class="item">
+      <img src="5.jpg" alt="New York" style="width: 539px; height: 300px;">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<% end %>
 </div>
