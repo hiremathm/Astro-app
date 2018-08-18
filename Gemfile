@@ -8,6 +8,7 @@ gem 'httparty'
 gem 'pry'
 gem 'geocoder'
 gem 'devise'
+gem 'activeadmin'
 group :production do 
 	gem 'pg', '~> 0.15.1'
 end
