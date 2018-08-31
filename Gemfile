@@ -10,6 +10,7 @@ gem 'geocoder'
 gem 'devise'
 gem 'activeadmin'
 gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'
+gem 'arctic_admin'
 
 group :production do 
 	gem 'pg', '~> 0.15.1'
