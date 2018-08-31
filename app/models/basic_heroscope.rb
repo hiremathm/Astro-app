@@ -2,11 +2,16 @@ require 'net/http'
 require 'uri'
 
 class BasicHeroscope < ActiveRecord::Base
-
+	validates_presence_of :name, :time, :birth_place, :date
 	belongs_to :user
 	@@baseURL = "http://api.vedicrishiastro.com/v1/"
 
 	before_save :determine_lat_and_long, :get_basic_heroscope_details
+
+
+	def change
+		self.update_attributes(name: "Aishu weds Shivu")
+	end
 
 	private
 

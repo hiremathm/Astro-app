@@ -9,6 +9,8 @@ gem 'pry'
 gem 'geocoder'
 gem 'devise'
 gem 'activeadmin'
+gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'
+
 group :production do 
 	gem 'pg', '~> 0.15.1'
 end
