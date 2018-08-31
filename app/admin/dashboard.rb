@@ -10,10 +10,21 @@ ActiveAdmin.register_page "Dashboard" do
     #   end
     # end
 
-    columns do
-      column do
-            link_to "User DashBoard", root_path
-            end
-        end
-    end
+    # Here is an example of a simple dashboard with columns and panels.
+    #
+    # columns do
+    #   column do
+    #     panel "Recent Posts" do
+    #       ul do
+    #         Post.recent(5).map do |post|
+    #           li link_to(post.title, admin_post_path(post))
+    #         end
+    #       end
+    #     end
+    #   end
+
+      columns do
+          para "All Paid Documents should be added here"
+      end
+  end 
 end
