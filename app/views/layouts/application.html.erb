@@ -25,18 +25,27 @@
 		    		</div>
 		    		<ul style="font-size: 20px;" class="nav navbar-nav navbar-right">
 		    			<% if not user_signed_in? %>
+		      			<li><a data-method="get" href="/askmonk/login">Admin</a></li>
 		      			<li>
 		      				<%= link_to new_user_registration_path do %>
-		      					<span class="glyphicon glyphicon-user"></span> Register
+		      					<span class="glyphicon glyphicon-user"></span>
 		      				<% end %>
 		      			</li>
 		      			<li>
 		      				<%= link_to new_user_session_path do %>
-		      					<span class="glyphicon glyphicon-log-in"></span> Sign In
+		      					<span class="glyphicon glyphicon-log-in"></span>
 		      				<% end %>
 		      			</li>
+		      				
 		      			<% else %>
-							<li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+		      				<li><%= link_to askmonk_root_path do %>
+		      						<span class="glyphicon glyphicon-home"></span>
+		      					<% end %>
+		      				</li>
+							<li><%= link_to destroy_user_session_path, method: :delete do %>
+									<span class="glyphicon glyphicon-off"></span>
+								<% end %>
+							</li>
 		      			<% end %>
 		    		</ul>
 		  		</div>
