@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
    has_many :basic_heroscopes
+
+   validates :email, presence: true
 end

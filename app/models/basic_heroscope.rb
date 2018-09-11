@@ -24,8 +24,8 @@ class BasicHeroscope < ActiveRecord::Base
 
 	def get_basic_heroscope_details
 		
-		userID = "602665"
-		apiKey = "9bb9ccbb35af92f5fec5bd51a81dc06b"
+		userID = "602816"
+		apiKey = "e10e6338e687949cc20f8a2ab4938860"
 
 		data = {
 			'day' => self.date.day,
